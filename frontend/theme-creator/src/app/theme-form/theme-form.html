@@ -1,0 +1,371 @@
+<form #themeForm="ngForm" (ngSubmit)="onSubmit()">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Crie Seu Tema para VS Code</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field appearance="fill">
+        <mat-label>Nome do Tema</mat-label>
+        <input matInput name="themeName" [(ngModel)]="themeData.name" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Descricao do Tema</mat-label>
+        <input matInput name="themeName" [(ngModel)]="themeData.description">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Publicador</mat-label>
+        <input matInput name="themeName" [(ngModel)]="themeData.publisher">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra de Atividades</mat-label>
+        <input matInput name="activityBarBackground" [(ngModel)]="themeData.colors.activityBar.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Texto da Barra de Atividades</mat-label>
+        <input matInput name="activityBarForeground" [(ngModel)]="themeData.colors.activityBar.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Texto Inativo da Barra de Atividades</mat-label>
+        <input matInput name="activityBarInactiveForeground" [(ngModel)]="themeData.colors.activityBar.inactiveForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Ativo da Barra de Atividades</mat-label>
+        <input matInput name="activityBarActiveBackground" [(ngModel)]="themeData.colors.activityBar.activeBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda Ativa da Barra de Atividades</mat-label>
+        <input matInput name="activityBarActiveBorder" [(ngModel)]="themeData.colors.activityBar.activeBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda de Foco Ativa da Barra de Atividades</mat-label>
+        <input matInput name="activityBarActiveFocusBorder" [(ngModel)]="themeData.colors.activityBar.activeFocusBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Texto do Badge da Barra de Atividades</mat-label>
+        <input matInput name="activityBarBadgeForeground" [(ngModel)]="themeData.colors.activityBarBadge.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Badge da Barra de Atividades</mat-label>
+        <input matInput name="activityBarBadgeBackground" [(ngModel)]="themeData.colors.activityBarBadge.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Inativo da Aba</mat-label>
+        <input matInput name="tabInactiveBackground" [(ngModel)]="themeData.colors.tab.inactiveBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Ativo da Aba</mat-label>
+        <input matInput name="tabActiveBackground" [(ngModel)]="themeData.colors.tab.activeBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda da Última Aba Fixada</mat-label>
+        <input matInput name="tabLastPinnedBorder" [(ngModel)]="themeData.colors.tab.lastPinnedBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra Lateral</mat-label>
+        <input matInput name="sideBarBackground" [(ngModel)]="themeData.colors.sideBar.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra de Status</mat-label>
+        <input matInput name="statusBarBackground" [(ngModel)]="themeData.colors.statusBar.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra de Status sem Pasta</mat-label>
+        <input matInput name="statusBarNoFolderBackground" [(ngModel)]="themeData.colors.statusBar.noFolderBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Item Remoto da Barra de Status</mat-label>
+        <input matInput name="statusBarItemRemoteBackground" [(ngModel)]="themeData.colors.statusBarItem.remoteBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Ícone de Processo em Execução nas Portas</mat-label>
+        <input matInput name="portsIconRunningProcessForeground" [(ngModel)]="themeData.colors.ports.iconRunningProcessForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo das Abas no Cabeçalho do Editor</mat-label>
+        <input matInput name="editorGroupHeaderTabsBackground" [(ngModel)]="themeData.colors.editorGroupHeader.tabsBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Ativo da Barra de Título</mat-label>
+        <input matInput name="titleBarActiveBackground" [(ngModel)]="themeData.colors.titleBar.activeBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Inativo da Barra de Título</mat-label>
+        <input matInput name="titleBarInactiveBackground" [(ngModel)]="themeData.colors.titleBar.inactiveBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Seleção</mat-label>
+        <input matInput name="selectionBackground" [(ngModel)]="themeData.colors.selection.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Widget de Hover do Editor</mat-label>
+        <input matInput name="editorHoverWidgetBackground" [(ngModel)]="themeData.colors.editorHoverWidget.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Destaque do Hover do Editor</mat-label>
+        <input matInput name="editorHoverHighlightBackground" [(ngModel)]="themeData.colors.editor.hoverHighlightBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor Ativa do Link do Editor</mat-label>
+        <input matInput name="editorLinkActiveForeground" [(ngModel)]="themeData.colors.editor.link.activeForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Seleção do Editor</mat-label>
+        <input matInput name="editorSelectionBackground" [(ngModel)]="themeData.colors.editor.selectionBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Destaque da Seleção do Editor</mat-label>
+        <input matInput name="editorSelectionHighlightBackground" [(ngModel)]="themeData.colors.editor.selectionHighlightBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Editor</mat-label>
+        <input matInput name="editorBackground" [(ngModel)]="themeData.colors.editor.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda do Grupo do Editor</mat-label>
+        <input matInput name="editorGroupBorder" [(ngModel)]="themeData.colors.editor.border" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Cursor do Editor</mat-label>
+        <input matInput name="editorCursorForeground" [(ngModel)]="themeData.colors.editor.cursor.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Texto do Editor</mat-label>
+        <input matInput name="editorForeground" [(ngModel)]="themeData.colors.editor.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Espaço em Branco do Editor</mat-label>
+        <input matInput name="editorWhitespaceForeground" [(ngModel)]="themeData.colors.editor.whitespace.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Destaque de Seleção no Minimap</mat-label>
+        <input matInput name="minimapSelectionHighlight" [(ngModel)]="themeData.colors.minimap.selectionHighlight" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Número da Linha do Editor</mat-label>
+        <input matInput name="editorLineNumberForeground" [(ngModel)]="themeData.colors.editorLineNumber.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor Ativa do Número da Linha do Editor</mat-label>
+        <input matInput name="editorLineNumberActiveForeground" [(ngModel)]="themeData.colors.editorLineNumber.activeForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Widget do Editor</mat-label>
+        <input matInput name="editorWidgetBackground" [(ngModel)]="themeData.colors.editorWidget.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Widget de Sugestão do Editor</mat-label>
+        <input matInput name="editorSuggestWidgetBackground" [(ngModel)]="themeData.colors.editorSuggestWidget.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda do Widget de Sugestão do Editor</mat-label>
+        <input matInput name="editorSuggestWidgetBorder" [(ngModel)]="themeData.colors.editorSuggestWidget.border" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Destaque da Linha do Editor</mat-label>
+        <input matInput name="editorLineHighlightBackground" [(ngModel)]="themeData.colors.editor.lineHighlightBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda de Destaque da Linha do Editor</mat-label>
+        <input matInput name="editorLineHighlightBorder" [(ngModel)]="themeData.colors.editor.lineHighlightBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Título da Visualização de Peek</mat-label>
+        <input matInput name="peekViewTitleBackground" [(ngModel)]="themeData.colors.peekView.title.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda da Visualização de Peek</mat-label>
+        <input matInput name="peekViewBorder" [(ngModel)]="themeData.colors.peekView.border" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Resultado da Visualização de Peek</mat-label>
+        <input matInput name="peekViewResultBackground" [(ngModel)]="themeData.colors.peekView.result.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Editor da Visualização de Peek</mat-label>
+        <input matInput name="peekViewEditorBackground" [(ngModel)]="themeData.colors.peekView.editor.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Guia de Indentação do Editor</mat-label>
+        <input matInput name="editorIndentGuideBackground" [(ngModel)]="themeData.colors.editorIndentGuide.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Ativo do Guia de Indentação do Editor</mat-label>
+        <input matInput name="editorIndentGuideActiveBackground" [(ngModel)]="themeData.colors.editorIndentGuide.activeBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra de Ferramentas de Depuração</mat-label>
+        <input matInput name="debugToolBarBackground" [(ngModel)]="themeData.colors.debugToolBar.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda de Foco</mat-label>
+        <input matInput name="focusBorder" [(ngModel)]="themeData.colors.focusBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Botão</mat-label>
+        <input matInput name="buttonBackground" [(ngModel)]="themeData.colors.button.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Dropdown</mat-label>
+        <input matInput name="dropdownBackground" [(ngModel)]="themeData.colors.dropdown.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Input</mat-label>
+        <input matInput name="inputBackground" [(ngModel)]="themeData.colors.input.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda Ativa do InputOption</mat-label>
+        <input matInput name="inputOptionActiveBorder" [(ngModel)]="themeData.colors.inputOption.activeBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Validação de Info do Input</mat-label>
+        <input matInput name="inputValidationInfoBackground" [(ngModel)]="themeData.colors.inputValidation.infoBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda de Validação de Info do Input</mat-label>
+        <input matInput name="inputValidationInfoBorder" [(ngModel)]="themeData.colors.inputValidation.infoBorder" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Hover na Lista</mat-label>
+        <input matInput name="listHoverBackground" [(ngModel)]="themeData.colors.list.hoverBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Seleção Ativa na Lista</mat-label>
+        <input matInput name="listActiveSelectionBackground" [(ngModel)]="themeData.colors.list.activeSelectionBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Seleção Inativa na Lista</mat-label>
+        <input matInput name="listInactiveSelectionBackground" [(ngModel)]="themeData.colors.list.inactiveSelectionBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Drop na Lista</mat-label>
+        <input matInput name="listDropBackground" [(ngModel)]="themeData.colors.list.dropBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Foco na Lista Rápida</mat-label>
+        <input matInput name="quickInputListFocusBackground" [(ngModel)]="themeData.colors.quickInputList.focusBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor de Destaque na Lista</mat-label>
+        <input matInput name="listHighlightForeground" [(ngModel)]="themeData.colors.list.highlightForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Menu</mat-label>
+        <input matInput name="menuBackground" [(ngModel)]="themeData.colors.menu.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Texto do Menu</mat-label>
+        <input matInput name="menuForeground" [(ngModel)]="themeData.colors.menu.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor de Seleção do Texto do Menu</mat-label>
+        <input matInput name="menuSelectionForeground" [(ngModel)]="themeData.colors.menu.selectionForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Seleção do Menu</mat-label>
+        <input matInput name="menuSelectionBackground" [(ngModel)]="themeData.colors.menu.selectionBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor do Grupo do Picker</mat-label>
+        <input matInput name="pickerGroupForeground" [(ngModel)]="themeData.colors.pickerGroup.foreground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Borda do Grupo do Picker</mat-label>
+        <input matInput name="pickerGroupBorder" [(ngModel)]="themeData.colors.pickerGroup.border" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo do Badge</mat-label>
+        <input matInput name="badgeBackground" [(ngModel)]="themeData.colors.badge.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo da Barra de Progresso</mat-label>
+        <input matInput name="progressBarBackground" [(ngModel)]="themeData.colors.progressBar.background" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Cor de Erro</mat-label>
+        <input matInput name="errorForeground" [(ngModel)]="themeData.colors.errorForeground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo Prominente do Botão da Extensão</mat-label>
+        <input matInput name="extensionButtonProminentBackground" [(ngModel)]="themeData.colors.extensionButton.prominentBackground" type="color" required>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Fundo de Hover Prominente do Botão da Extensão</mat-label>
+        <input matInput name="extensionButtonProminentHoverBackground" [(ngModel)]="themeData.colors.extensionButton.prominentHoverBackground" type="color" required>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!themeForm.valid">Gerar Tema</button>
+    </mat-card-actions>
+  </mat-card>
+</form>
