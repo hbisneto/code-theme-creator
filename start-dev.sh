@@ -1,5 +1,6 @@
 #!/bin/bash
 
+### ======================================== Variables ======================================== ###
 # Path to backend
 BACKEND_DIR="backend"
 # Path to frontend
@@ -10,8 +11,15 @@ OS_TYPE=$(uname)
 USERNAME="$USER"
 USERNAME_FORMATTED="$(echo "${USERNAME:0:1}" | tr '[:lower:]' '[:upper:]')$(echo "${USERNAME:1}" | tr '[:upper:]' '[:lower:]')"
 UI_SEP="========================================"
+# Get the absolute path of the current directory
+BASE_DIR=$(pwd)
 
-### === Backend === ###
+if [ ! -d "$BASE_DIR/$BACKEND_DIR" ] || [ ! -d "$BASE_DIR/$FRONTEND_DIR" ]; then
+  echo "[ ❌ ]: Required directories '$BACKEND_DIR' or '$FRONTEND_DIR' not found in $BASE_DIR"
+  exit 1
+fi
+
+### ======================================== Backend Config ======================================== ###
 echo $UI_SEP
 echo "PREPARING BACKEND"
 echo $UI_SEP
@@ -34,7 +42,7 @@ pip install -r requirements.txt
 echo "[ ✅ ]: You're all set! Environment is ready and dependencies are installed!"
 echo ""
 
-### === Frontend === ###
+### ======================================== Frontend Config ======================================== ###
 echo $UI_SEP
 echo "PREPARING FRONTEND"
 echo $UI_SEP
@@ -44,38 +52,34 @@ cd "$FRONTEND_DIR" || { echo "[ ❌ ]: Could not find the directory '$FRONTEND_D
 if [ ! -d "node_modules" ]; then
   echo "[ 📦 ]: Installing npm dependencies..."
   npm install
-#   python3 -m venv venv
 else
   echo "[ ✅ ]: The folder 'node_modules' already exists. Skipping installation..."
   echo "[ ⚠️ ]: If some error occurs, run 'cd frontend/theme-creator && npm install'..."
 fi
 echo ""
 
-### === Servers === ###
+### ======================================== Servers Config ======================================== ###
 echo $UI_SEP
 echo "SERVERS"
 echo $UI_SEP
 
 # Asks if the user wants to start the frontend server
 read -p "[ 🚀 ]: Would you like to start the FRONTEND server? (y/N): " answer
-
 if [[ "$answer" =~ ^[Yy]$ ]]; then
     echo "[ ▶️ ]: Starting server using 'ng serve'..."
 
     if [[ "$OS_TYPE" == "Darwin" ]]; then
         # macOS
         echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
-
         osascript <<EOF
 tell application "Terminal"
-    do script "cd $FRONTEND_DIR; ng serve"
+    do script "/bin/bash -c 'echo \"$UI_SEP\"; echo \"Running Angular Server: [$USERNAME_FORMATTED]\"; echo \"$UI_SEP\"; cd \"$BASE_DIR/$FRONTEND_DIR\"; ng serve'"
 end tell
 EOF
 
     elif [[ "$OS_TYPE" == "Linux" ]]; then
         # Linux
         echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
-
         gnome-terminal --tab -- bash -c "\
             echo \"$UI_SEP\" && \
             echo 'Running Angular Server: ['$USERNAME_FORMATTED']' && \
@@ -93,23 +97,21 @@ fi
 
 # Asks if the user wants to start the backend server
 read -p "[ 🚀 ]: Would you like to start the BACKEND server? (y/N): " answer
-
 if [[ "$answer" =~ ^[Yy]$ ]]; then
   echo "[ ▶️ ]: Starting server using 'app.py'..."
   if [[ "$OS_TYPE" == "Darwin" ]]; then
         # macOS
         echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
-
+        echo "[ ✅ ]: Activating virtual environment..."
         osascript <<EOF
 tell application "Terminal"
-    do script "echo $UI_SEP && echo ' Running Python Server: [$USERNAME_FORMATTED]' && echo $UI_SEP && cd .. && cd .. && cd $BACKEND_DIR && python3 app.py"
+    do script "/bin/bash -c 'echo \"$UI_SEP\"; echo \"Running Python Server: [$USERNAME_FORMATTED]\"; echo \"$UI_SEP\"; cd \"$BASE_DIR/$BACKEND_DIR\"; source venv/bin/activate; python3 app.py'"
 end tell
 EOF
 
     elif [[ "$OS_TYPE" == "Linux" ]]; then
         # Linux
         echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
-
         gnome-terminal --tab -- bash -c "\
             echo \"$UI_SEP\" && \
             echo 'Running Python Server: ['$USERNAME_FORMATTED']' && \
@@ -118,8 +120,6 @@ EOF
             cd \"$BACKEND_DIR\" && \
             python3 app.py && \
             exec bash"
-
-
     else
         echo "[ ❌ ]: This operating system is not supported. Please, run the server manually."
     fi
