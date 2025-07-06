@@ -66,69 +66,69 @@ echo $UI_SEP
 # Asks if the user wants to start the frontend server
 read -p "[ 🚀 ]: Would you like to start the FRONTEND server? (y/N): " answer
 if [[ "$answer" =~ ^[Yy]$ ]]; then
-    echo "[ ▶️ ]: Starting server using 'ng serve'..."
+  echo "[ ▶️ ]: Starting server using 'ng serve'..."
 
-    if [[ "$OS_TYPE" == "Darwin" ]]; then
-      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
-        # macOS
-        echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
-        osascript <<EOF
+  # macOS
+  if [[ "$OS_TYPE" == "Darwin" ]]; then
+    DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
+      echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
+      osascript <<EOF
 tell application "Terminal"
-    do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Angular Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$FRONTEND_DIR\"; ng serve'"
+  do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Angular Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$FRONTEND_DIR\"; ng serve'"
 end tell
 EOF
 
-    elif [[ "$OS_TYPE" == "Linux" ]]; then
-      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
-        # Linux
-        echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
-        gnome-terminal --tab -- bash -c "\
-            echo \"$UI_SEP\" && \
-            echo 'Running Angular Server: ['$USERNAME_FORMATTED']' && \
-            echo $DATE_HOUR
-            echo \"$UI_SEP\" && \
-            cd ../.. && \
-            cd \"$FRONTEND_DIR\" && \
-            ng serve && \
-            exec bash"
-    else
-        echo "[ ❌ ]: This operating system is not supported. Please, run the server manually."
-    fi
+  # Linux
+  elif [[ "$OS_TYPE" == "Linux" ]]; then
+    DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
+      echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
+      gnome-terminal --tab -- bash -c "\
+        echo \"$UI_SEP\" && \
+        echo 'Running Angular Server: ['$USERNAME_FORMATTED']' && \
+        echo $DATE_HOUR
+        echo \"$UI_SEP\" && \
+        cd ../.. && \
+        cd \"$FRONTEND_DIR\" && \
+        ng serve && \
+        exec bash"
+  else
+    echo "[ ❌ ]: This operating system is not supported. Please, run the server manually."
+  fi
 else
-    echo "[ ⏹️ ]: Server not started."
+  echo "[ ⏹️ ]: Server not started."
 fi
 
 # Asks if the user wants to start the backend server
 read -p "[ 🚀 ]: Would you like to start the BACKEND server? (y/N): " answer
 if [[ "$answer" =~ ^[Yy]$ ]]; then
   echo "[ ▶️ ]: Starting server using 'app.py'..."
+  # macOS
   if [[ "$OS_TYPE" == "Darwin" ]]; then
     DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
-        # macOS
-        echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
-        echo "[ ✅ ]: Activating virtual environment..."
-        osascript <<EOF
+      echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
+      echo "[ ✅ ]: Activating virtual environment..."
+      osascript <<EOF
 tell application "Terminal"
-    do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Python Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$BACKEND_DIR\"; source venv/bin/activate; python3 app.py'"
+  do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Python Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$BACKEND_DIR\"; source venv/bin/activate; python3 app.py'"
 end tell
 EOF
 
-    elif [[ "$OS_TYPE" == "Linux" ]]; then
-      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
-        # Linux
-        echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
-        gnome-terminal --tab -- bash -c "\
-            echo \"$UI_SEP\" && \
-            echo 'Running Python Server: ['$USERNAME_FORMATTED']' && \
-            echo $DATE_HOUR
-            echo \"$UI_SEP\" && \
-            cd ../.. && \
-            cd \"$BACKEND_DIR\" && \
-            python3 app.py && \
-            exec bash"
-    else
-        echo "[ ❌ ]: This operating system is not supported. Please, run the server manually."
-    fi
+  elif [[ "$OS_TYPE" == "Linux" ]]; then
+    DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
+      # Linux
+      echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
+      gnome-terminal --tab -- bash -c "\
+        echo \"$UI_SEP\" && \
+        echo 'Running Python Server: ['$USERNAME_FORMATTED']' && \
+        echo $DATE_HOUR
+        echo \"$UI_SEP\" && \
+        cd ../.. && \
+        cd \"$BACKEND_DIR\" && \
+        python3 app.py && \
+        exec bash"
+  else
+    echo "[ ❌ ]: This operating system is not supported. Please, run the server manually."
+  fi
 else
-  echo "[ ⏹️ ]: Server not started."
+echo "[ ⏹️ ]: Server not started."
 fi
