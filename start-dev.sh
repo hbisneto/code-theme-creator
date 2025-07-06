@@ -69,11 +69,12 @@ if [[ "$answer" =~ ^[Yy]$ ]]; then
     echo "[ ▶️ ]: Starting server using 'ng serve'..."
 
     if [[ "$OS_TYPE" == "Darwin" ]]; then
+      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
         # macOS
         echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
         osascript <<EOF
 tell application "Terminal"
-    do script "/bin/bash -c 'echo \"$UI_SEP\"; echo \"Running Angular Server: [$USERNAME_FORMATTED]\"; echo \"$UI_SEP\"; cd \"$BASE_DIR/$FRONTEND_DIR\"; ng serve'"
+    do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Angular Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$FRONTEND_DIR\"; ng serve'"
 end tell
 EOF
 
@@ -102,12 +103,13 @@ read -p "[ 🚀 ]: Would you like to start the BACKEND server? (y/N): " answer
 if [[ "$answer" =~ ^[Yy]$ ]]; then
   echo "[ ▶️ ]: Starting server using 'app.py'..."
   if [[ "$OS_TYPE" == "Darwin" ]]; then
+    DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
         # macOS
         echo "[ 🖥️ ]: macOS detected. Running server in a new tab..."
         echo "[ ✅ ]: Activating virtual environment..."
         osascript <<EOF
 tell application "Terminal"
-    do script "/bin/bash -c 'echo \"$UI_SEP\"; echo \"Running Python Server: [$USERNAME_FORMATTED]\"; echo \"$UI_SEP\"; cd \"$BASE_DIR/$BACKEND_DIR\"; source venv/bin/activate; python3 app.py'"
+    do script "/bin/bash -c 'clear; echo \"$UI_SEP\"; echo \"Running Python Server: [$USERNAME_FORMATTED]\"; echo $DATE_HOUR; echo \"$UI_SEP\"; cd \"$BASE_DIR/$BACKEND_DIR\"; source venv/bin/activate; python3 app.py'"
 end tell
 EOF
 
