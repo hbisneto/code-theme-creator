@@ -1,44 +1,883 @@
 <form #themeForm="ngForm" (ngSubmit)="onSubmit()">
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Crie Seu Tema para VS Code</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <mat-form-field appearance="fill">
-        <mat-label>Nome do Tema</mat-label>
-        <input matInput name="themeName" [(ngModel)]="themeData.name" required>
-      </mat-form-field>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Descricao do Tema</mat-label>
-        <input matInput name="themeName" [(ngModel)]="themeData.description">
-      </mat-form-field>
+  <div class="container my-4 d-flex justify-content-center align-items-center min-vh-100" >
+        <div class="border rounded p-3" style="max-height: 500px; overflow-y: auto;">
+            <!-- Repetidas linhas aqui -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Extension Name</label>
+                        <input type="text" class="form-control" name="themeName" [(ngModel)]="themeData.name" required>
+                        <div class="form-text">A name that best describe your theme</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Publisher Name</label>
+                        <input type="text" class="form-control" name="publisherName" [(ngModel)]="themeData.publisher">
+                        <div id="emailHelp" class="form-text">Publisher name used in Visual Studio Marketplace</div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Theme Description</label>
+                        <textarea class="form-control" rows="1" name="themeDescription" [(ngModel)]="themeData.description"></textarea>
+                        <div id="emailHelp" class="form-text">Describe what highlights your theme</div>
+                    </div>                 
+                </div>
+            </div>
+            <!-- Copie e repita as linhas acima conforme necessário -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Publicador</mat-label>
-        <input matInput name="themeName" [(ngModel)]="themeData.publisher">
-      </mat-form-field>
+            <!-- Repetidas linhas aqui -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarBackground" [(ngModel)]="themeData.colors.activityBar.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+            <!-- Copie e repita as linhas acima conforme necessário -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Fundo da Barra de Atividades</mat-label>
-        <input matInput name="activityBarBackground" [(ngModel)]="themeData.colors.activityBar.background" type="color" required>
-      </mat-form-field>
+            <!-- Repetidas linhas aqui -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Texto da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarForeground" [(ngModel)]="themeData.colors.activityBar.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+            <!-- Copie e repita as linhas acima conforme necessário -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Texto da Barra de Atividades</mat-label>
-        <input matInput name="activityBarForeground" [(ngModel)]="themeData.colors.activityBar.foreground" type="color" required>
-      </mat-form-field>
+            <!-- Repetidas linhas aqui -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Texto Inativo da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarInactiveForeground" [(ngModel)]="themeData.colors.activityBar.inactiveForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+            <!-- Copie e repita as linhas acima conforme necessário -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Texto Inativo da Barra de Atividades</mat-label>
-        <input matInput name="activityBarInactiveForeground" [(ngModel)]="themeData.colors.activityBar.inactiveForeground" type="color" required>
-      </mat-form-field>
+            <!-- Repetidas linhas aqui -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Ativo da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarActiveBackground" [(ngModel)]="themeData.colors.activityBar.activeBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+            <!-- Copie e repita as linhas acima conforme necessário -->
 
-      <mat-form-field appearance="fill">
-        <mat-label>Fundo Ativo da Barra de Atividades</mat-label>
-        <input matInput name="activityBarActiveBackground" [(ngModel)]="themeData.colors.activityBar.activeBackground" type="color" required>
-      </mat-form-field>
 
+
+
+
+
+
+            <!-- Borda Ativa da Barra de Atividades -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda Ativa da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarActiveBorder" [(ngModel)]="themeData.colors.activityBar.activeBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda de Foco Ativa da Barra de Atividades -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda de Foco Ativa da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarActiveFocusBorder" [(ngModel)]="themeData.colors.activityBar.activeFocusBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Texto do Badge da Barra de Atividades -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Texto do Badge da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarBadgeForeground" [(ngModel)]="themeData.colors.activityBarBadge.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Badge da Barra de Atividades -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Badge da Barra de Atividades</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="activityBarBadgeBackground" [(ngModel)]="themeData.colors.activityBarBadge.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Inativo da Aba -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Inativo da Aba</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="tabInactiveBackground" [(ngModel)]="themeData.colors.tab.inactiveBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Ativo da Aba -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Ativo da Aba</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="tabActiveBackground" [(ngModel)]="themeData.colors.tab.activeBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda da Última Aba Fixada -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda da Última Aba Fixada</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="tabLastPinnedBorder" [(ngModel)]="themeData.colors.tab.lastPinnedBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Barra Lateral -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra Lateral</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="sideBarBackground" [(ngModel)]="themeData.colors.sideBar.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Barra de Status -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra de Status</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="statusBarBackground" [(ngModel)]="themeData.colors.statusBar.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Barra de Status sem Pasta -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra de Status sem Pasta</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="statusBarNoFolderBackground" [(ngModel)]="themeData.colors.statusBar.noFolderBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Item Remoto da Barra de Status -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Item Remoto da Barra de Status</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="statusBarItemRemoteBackground" [(ngModel)]="themeData.colors.statusBarItem.remoteBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Ícone de Processo em Execução nas Portas -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Ícone de Processo em Execução nas Portas</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="portsIconRunningProcessForeground" [(ngModel)]="themeData.colors.ports.iconRunningProcessForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo das Abas no Cabeçalho do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo das Abas no Cabeçalho do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorGroupHeaderTabsBackground" [(ngModel)]="themeData.colors.editorGroupHeader.tabsBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Ativo da Barra de Título -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Ativo da Barra de Título</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="titleBarActiveBackground" [(ngModel)]="themeData.colors.titleBar.activeBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Inativo da Barra de Título -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Inativo da Barra de Título</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="titleBarInactiveBackground" [(ngModel)]="themeData.colors.titleBar.inactiveBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Seleção -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Seleção</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="selectionBackground" [(ngModel)]="themeData.colors.selection.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Widget de Hover do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Widget de Hover do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorHoverWidgetBackground" [(ngModel)]="themeData.colors.editorHoverWidget.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Destaque do Hover do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Destaque do Hover do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorHoverHighlightBackground" [(ngModel)]="themeData.colors.editor.hoverHighlightBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor Ativa do Link do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor Ativa do Link do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorLinkActiveForeground" [(ngModel)]="themeData.colors.editor.link.activeForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Seleção do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Seleção do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorSelectionBackground" [(ngModel)]="themeData.colors.editor.selectionBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Destaque da Seleção do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Destaque da Seleção do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorSelectionHighlightBackground" [(ngModel)]="themeData.colors.editor.selectionHighlightBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorBackground" [(ngModel)]="themeData.colors.editor.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda do Grupo do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda do Grupo do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorGroupBorder" [(ngModel)]="themeData.colors.editor.border" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Cursor do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Cursor do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorCursorForeground" [(ngModel)]="themeData.colors.editor.cursor.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Texto do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Texto do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorForeground" [(ngModel)]="themeData.colors.editor.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Espaço em Branco do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Espaço em Branco do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorWhitespaceForeground" [(ngModel)]="themeData.colors.editor.whitespace.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Destaque de Seleção no Minimap -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Destaque de Seleção no Minimap</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="minimapSelectionHighlight" [(ngModel)]="themeData.colors.minimap.selectionHighlight" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Número da Linha do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Número da Linha do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorLineNumberForeground" [(ngModel)]="themeData.colors.editorLineNumber.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor Ativa do Número da Linha do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor Ativa do Número da Linha do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorLineNumberActiveForeground" [(ngModel)]="themeData.colors.editorLineNumber.activeForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Widget do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Widget do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorWidgetBackground" [(ngModel)]="themeData.colors.editorWidget.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Widget de Sugestão do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Widget de Sugestão do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorSuggestWidgetBackground" [(ngModel)]="themeData.colors.editorSuggestWidget.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda do Widget de Sugestão do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda do Widget de Sugestão do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorSuggestWidgetBorder" [(ngModel)]="themeData.colors.editorSuggestWidget.border" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Destaque da Linha do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Destaque da Linha do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorLineHighlightBackground" [(ngModel)]="themeData.colors.editor.lineHighlightBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda de Destaque da Linha do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda de Destaque da Linha do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorLineHighlightBorder" [(ngModel)]="themeData.colors.editor.lineHighlightBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Título da Visualização de Peek -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Título da Visualização de Peek</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="peekViewTitleBackground" [(ngModel)]="themeData.colors.peekView.title.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda da Visualização de Peek -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda da Visualização de Peek</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="peekViewBorder" [(ngModel)]="themeData.colors.peekView.border" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Resultado da Visualização de Peek -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Resultado da Visualização de Peek</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="peekViewResultBackground" [(ngModel)]="themeData.colors.peekView.result.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Editor da Visualização de Peek -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Editor da Visualização de Peek</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="peekViewEditorBackground" [(ngModel)]="themeData.colors.peekView.editor.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Guia de Indentação do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Guia de Indentação do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorIndentGuideBackground" [(ngModel)]="themeData.colors.editorIndentGuide.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Ativo do Guia de Indentação do Editor -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Ativo do Guia de Indentação do Editor</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="editorIndentGuideActiveBackground" [(ngModel)]="themeData.colors.editorIndentGuide.activeBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Barra de Ferramentas de Depuração -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra de Ferramentas de Depuração</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="debugToolBarBackground" [(ngModel)]="themeData.colors.debugToolBar.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda de Foco -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda de Foco</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="focusBorder" [(ngModel)]="themeData.colors.focusBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Botão -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Botão</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="buttonBackground" [(ngModel)]="themeData.colors.button.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Dropdown -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Dropdown</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="dropdownBackground" [(ngModel)]="themeData.colors.dropdown.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Input -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Input</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="inputBackground" [(ngModel)]="themeData.colors.input.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda Ativa do InputOption -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda Ativa do InputOption</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="inputOptionActiveBorder" [(ngModel)]="themeData.colors.inputOption.activeBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Validação de Info do Input -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Validação de Info do Input</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="inputValidationInfoBackground" [(ngModel)]="themeData.colors.inputValidation.infoBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda de Validação de Info do Input -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda de Validação de Info do Input</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="inputValidationInfoBorder" [(ngModel)]="themeData.colors.inputValidation.infoBorder" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Hover na Lista -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Hover na Lista</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="listHoverBackground" [(ngModel)]="themeData.colors.list.hoverBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Seleção Ativa na Lista -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Seleção Ativa na Lista</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="listActiveSelectionBackground" [(ngModel)]="themeData.colors.list.activeSelectionBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Seleção Inativa na Lista -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Seleção Inativa na Lista</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="listInactiveSelectionBackground" [(ngModel)]="themeData.colors.list.inactiveSelectionBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Drop na Lista -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Drop na Lista</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="listDropBackground" [(ngModel)]="themeData.colors.list.dropBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Foco na Lista Rápida -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Foco na Lista Rápida</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="quickInputListFocusBackground" [(ngModel)]="themeData.colors.quickInputList.focusBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor de Destaque na Lista -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor de Destaque na Lista</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="listHighlightForeground" [(ngModel)]="themeData.colors.list.highlightForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Menu -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Menu</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="menuBackground" [(ngModel)]="themeData.colors.menu.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Texto do Menu -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Texto do Menu</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="menuForeground" [(ngModel)]="themeData.colors.menu.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor de Seleção do Texto do Menu -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor de Seleção do Texto do Menu</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="menuSelectionForeground" [(ngModel)]="themeData.colors.menu.selectionForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Seleção do Menu -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Seleção do Menu</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="menuSelectionBackground" [(ngModel)]="themeData.colors.menu.selectionBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor do Grupo do Picker -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor do Grupo do Picker</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="pickerGroupForeground" [(ngModel)]="themeData.colors.pickerGroup.foreground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Borda do Grupo do Picker -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Borda do Grupo do Picker</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="pickerGroupBorder" [(ngModel)]="themeData.colors.pickerGroup.border" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo do Badge -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo do Badge</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="badgeBackground" [(ngModel)]="themeData.colors.badge.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo da Barra de Progresso -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo da Barra de Progresso</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="progressBarBackground" [(ngModel)]="themeData.colors.progressBar.background" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Cor de Erro -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Cor de Erro</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="errorForeground" [(ngModel)]="themeData.colors.errorForeground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo Prominente do Botão da Extensão -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo Prominente do Botão da Extensão</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="extensionButtonProminentBackground" [(ngModel)]="themeData.colors.extensionButton.prominentBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+            <!-- Fundo de Hover Prominente do Botão da Extensão -->
+            <div class="row mb-3 align-items-center">
+                <div class="col">Fundo de Hover Prominente do Botão da Extensão</div>
+                <div class="col">
+                    <label class="form-label">Color picker</label>
+                    <input type="color" class="form-control form-control-color w-100" name="extensionButtonProminentHoverBackground" [(ngModel)]="themeData.colors.extensionButton.prominentHoverBackground" title="Choose your color">
+                </div>
+                <div class="col">
+                    <img src="https://visualstudio.microsoft.com/wp-content/uploads/2025/05/vs-product.webp" class="img-fluid" alt="...">
+                </div>
+            </div>
+
+
+            
+
+            
+        </div>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!themeForm.valid">Gerar Tema</button>
+
+
+
+  <!-- 
       <mat-form-field appearance="fill">
         <mat-label>Borda Ativa da Barra de Atividades</mat-label>
         <input matInput name="activityBarActiveBorder" [(ngModel)]="themeData.colors.activityBar.activeBorder" type="color" required>
@@ -367,5 +1206,5 @@
     <mat-card-actions>
       <button mat-raised-button color="primary" type="submit" [disabled]="!themeForm.valid">Gerar Tema</button>
     </mat-card-actions>
-  </mat-card>
+  </mat-card> -->
 </form>
