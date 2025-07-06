@@ -78,11 +78,13 @@ end tell
 EOF
 
     elif [[ "$OS_TYPE" == "Linux" ]]; then
+      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
         # Linux
         echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
         gnome-terminal --tab -- bash -c "\
             echo \"$UI_SEP\" && \
             echo 'Running Angular Server: ['$USERNAME_FORMATTED']' && \
+            echo $DATE_HOUR
             echo \"$UI_SEP\" && \
             cd ../.. && \
             cd \"$FRONTEND_DIR\" && \
@@ -110,11 +112,13 @@ end tell
 EOF
 
     elif [[ "$OS_TYPE" == "Linux" ]]; then
+      DATE_HOUR=$(date +"%Y-%m-%d %H:%M:%S")
         # Linux
         echo "[ 🖥️ ]: Linux detected. Running server in a new tab..."
         gnome-terminal --tab -- bash -c "\
             echo \"$UI_SEP\" && \
             echo 'Running Python Server: ['$USERNAME_FORMATTED']' && \
+            echo $DATE_HOUR
             echo \"$UI_SEP\" && \
             cd ../.. && \
             cd \"$BACKEND_DIR\" && \
