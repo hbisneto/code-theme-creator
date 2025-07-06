@@ -3,15 +3,15 @@ import { HttpClient } from '@angular/common/http';
 import { saveAs } from 'file-saver';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { MatCardModule } from '@angular/material/card';
-import { MatCardHeader } from '@angular/material/card';
-import { MatCardTitle } from '@angular/material/card';
-import { MatCardContent } from '@angular/material/card';
-import { MatCardActions } from '@angular/material/card';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatLabel } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
+// import { MatCardModule } from '@angular/material/card';
+// import { MatCardHeader } from '@angular/material/card';
+// import { MatCardTitle } from '@angular/material/card';
+// import { MatCardContent } from '@angular/material/card';
+// import { MatCardActions } from '@angular/material/card';
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatLabel } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-theme-form',
@@ -19,10 +19,10 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     CommonModule,
     FormsModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule
+    // MatCardModule,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatButtonModule
   ],
   templateUrl: './theme-form.html',
   styleUrl: './theme-form.css'
